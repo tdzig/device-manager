@@ -4,8 +4,13 @@
     .minimum_zig_version = "0.16.0",
     .fingerprint = 0x7092fc243ac08438,
     .dependencies = .{
+        // URL dependency: a fetched copy of this package cannot resolve
+        // a sibling-checkout path ("../td" escapes the package root).
+        // Local development against a td checkout still works via
+        // `zig fetch` (the URL is pinned to td's main sha).
         .td = .{
-            .path = "../td",
+            .url = "https://github.com/tdzig/td/archive/f0f7d2487762b28e9a5a4690f2aaae00a23ec06c.tar.gz",
+            .hash = "td-0.1.0-RcOCoLJGTQDtMCJPaheXePIQDyvsPlr3Zipd_JF8-70U",
         },
     },
     .paths = .{
